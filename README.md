@@ -27,6 +27,9 @@ Install informer with git
 
   [*] Windows
         python informer.py -t TARGET_DOMAIN
+
+  python3 informer.py --help
+
 ```
 
     

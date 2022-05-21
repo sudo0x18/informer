@@ -33,6 +33,7 @@ class Informer:
 			)
 		self.argParse.add_argument("-t","--target",help="Target domain name.",required=True)
 		self.argParse.add_argument("-d","--dns",nargs="?",help="Option for fetching DNS information.",const=True)
+		self.argParse.add_argument("-g","--geolocation",nargs="?",help="Option for fetching Geolocation information.",const=True)
 		self.argParse.add_argument("-s","--shodan",nargs="?",help="Option for fetching Shodan information.",const=True)
 		self.args = self.argParse.parse_args() #parsing the arguments
 
