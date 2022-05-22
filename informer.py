@@ -6,8 +6,9 @@ import argparse #Package for argument parsing
 import os #For screen clearing
 
 from modules.whois import Whois #Whois class from whois module file
-from modules.dns import DNS #DNS class from whois module file
-from modules.geolocation import Geolocation #Geolocation class from whois module file
+from modules.dns import DNS #DNS class from dns module file
+from modules.geolocation import Geolocation #Geolocation class from geolocation module file
+from modules.shodan import Shodan #Shodan class from shodan module file
 
 #Defining informer class
 class Informer:
@@ -71,3 +72,7 @@ if __name__ == "__main__":
 	if informer.args.geolocation:
 		geo = Geolocation(informer.args.target) #Creating Geolocation class object
 		geo.get_geolocation() #Printing Geolocation information
+
+	if informer.args.shodan:
+		shodan = Shodan(informer.args.target) #Creating shodan class object
+		shodan.get_shodan() #Printing shodan information
