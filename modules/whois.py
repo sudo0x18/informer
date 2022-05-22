@@ -17,6 +17,7 @@ class Whois:
 			self.whois = whois.query(self.domain) #fetching details
 			if self.whois is not None:
 				print(f"{Fore.GREEN}[+] whois Information Found ..{Style.RESET_ALL}")
+				print("Whois Information :")
 				print("-----------------------------------------------------------------------------------------------")
 				print ("{:<20} {:<20}".format('| RECORD', '| DATA'))
 				print("-----------------------------------------------------------------------------------------------")

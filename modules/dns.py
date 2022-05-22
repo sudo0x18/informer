@@ -15,6 +15,7 @@ class DNS:
 		print(f"{Fore.GREEN}\n[+] Gathering DNS Information .. {Style.RESET_ALL}")
 		try:
 			print(f"{Fore.GREEN}[+] DNS Information found .. {Style.RESET_ALL}")
+			print("DNS Information :")
 			print("-----------------------------------------------------------------------------------------------")
 			print ("{:<20} {:<20}".format('| RECORD', '| DATA'))
 			print("-----------------------------------------------------------------------------------------------")

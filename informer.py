@@ -4,11 +4,14 @@
 from colorama import Fore, Back, Style #Coloring package
 import argparse #Package for argument parsing
 import os #For screen clearing
+import sys #System package
+import re #regular expression
 
 from modules.whois import Whois #Whois class from whois module file
 from modules.dns import DNS #DNS class from dns module file
 from modules.geolocation import Geolocation #Geolocation class from geolocation module file
 from modules.shodan import Shodan #Shodan class from shodan module file
+from modules.logger import Logger #Shodan class from logger module file
 
 #Defining informer class
 class Informer:
@@ -41,6 +44,9 @@ class Informer:
 		self.argParse.add_argument("-s","--shodan",nargs="?",help="Option for fetching Shodan information.",const=True)
 		self.argParse.add_argument("-o","--output",help="Save output to desired file.")
 		self.args = self.argParse.parse_args() #parsing the arguments
+
+		if self.args.output:
+			sys.stdout = Logger(self.args.output)
 
 	#Class method for printing banner
 	@classmethod

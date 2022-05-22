@@ -18,10 +18,11 @@ class Shodan:
 			self.info = self.shodan.search(str(self.domain),limit=5)
 			if(len(self.info['matches']) > 0):
 				print(f"{Fore.GREEN}[+] Shodan Information found .. {Style.RESET_ALL}")
+				print("Shodan Information :")
 				for i in self.info['matches']:
 					print(f"\n[+]-------------------------------------------------------------------------------------------------------------------------------\n")
-					print(f"{Fore.GREEN}[*] IP : {i['ip_str']}{Style.RESET_ALL}")
-					print(f"[*] Data : \n{i['data']}")
+					print(f"IP : {i['ip_str']}")
+					print(f"Data : \n{i['data']}")
 			else:
 				print(f"{Fore.RED}[!] Shodan Information not found ..{Style.RESET_ALL}")
 		except KeyboardInterrupt as e:

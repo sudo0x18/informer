@@ -17,6 +17,7 @@ class Geolocation:
 		try:
 			result = requests.request("GET",f"https://geolocation-db.com/json/{socket.gethostbyname(self.domain)}").json()
 			print(f"{Fore.GREEN}[+] Geolocation Information found .. {Style.RESET_ALL}")
+			print("Geolocation Information :")
 			print("-----------------------------------------------------------------------------------------------")
 			print ("{:<20} {:<20}".format('| RECORD', '| DATA'))
 			print("-----------------------------------------------------------------------------------------------")
