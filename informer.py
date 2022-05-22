@@ -6,6 +6,7 @@ import argparse #Package for argument parsing
 import os #For screen clearing
 
 from modules.whois import Whois #Whois class from whois module file
+from modules.dns import DNS #DNS class from whois module file
 
 #Defining informer class
 class Informer:
@@ -59,5 +60,9 @@ if __name__ == "__main__":
 	Informer.show_banner() #Showing banner
 	informer = Informer() #Initializing object
 
-	whois = Whois(informer.args.target)
+	whois = Whois(informer.args.target) #Creating Whois class object
 	whois.get_whois() #Printing whois information
+
+	if informer.args.dns:
+		dns = DNS(informer.args.target) #Creating DNS class object
+		dns.get_dns() #Printing DNS information

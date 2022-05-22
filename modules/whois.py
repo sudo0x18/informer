@@ -18,7 +18,7 @@ class Whois:
 			if self.whois is not None:
 				print(f"{Fore.GREEN}[+] whois Information Found ..{Style.RESET_ALL}")
 				print("-----------------------------------------------------------------------------------------------")
-				print ("{:<20} {:<20}".format('| NAME', '| DATA'))
+				print ("{:<20} {:<20}".format('| RECORD', '| DATA'))
 				print("-----------------------------------------------------------------------------------------------")
 				try:
 					print("{:<20} {:<20}".format("| Name",f"| {self.whois.name}"))
