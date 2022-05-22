@@ -7,6 +7,7 @@ import os #For screen clearing
 
 from modules.whois import Whois #Whois class from whois module file
 from modules.dns import DNS #DNS class from whois module file
+from modules.geolocation import Geolocation #Geolocation class from whois module file
 
 #Defining informer class
 class Informer:
@@ -66,3 +67,7 @@ if __name__ == "__main__":
 	if informer.args.dns:
 		dns = DNS(informer.args.target) #Creating DNS class object
 		dns.get_dns() #Printing DNS information
+
+	if informer.args.geolocation:
+		geo = Geolocation(informer.args.target) #Creating Geolocation class object
+		geo.get_geolocation() #Printing Geolocation information
