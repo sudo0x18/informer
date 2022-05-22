@@ -3,8 +3,9 @@
 #Importing Packages
 from colorama import Fore, Back, Style #Coloring package
 import argparse #Package for argument parsing
-import whois #Package for whois information
 import os #For screen clearing
+
+from modules.whois import Whois #Whois class from whois module file
 
 #Defining informer class
 class Informer:
@@ -21,7 +22,7 @@ class Informer:
 """
 	DESCRIPTION = f"""\n{Fore.BLUE}DESCRIPTION {Style.RESET_ALL}:\n-------------\nInformer is a Basic information gathering tool that provides\nvarious information about target like whois info,\nDNS info, Geolocation info of server and Shodan info."""
 
-	USAGE = f"{Fore.GREEN}python3 informer.py -t TARGET_DOMAIN [-d] [-s] [--help]{Style.RESET_ALL}"
+	USAGE = f"{Fore.GREEN}python3 informer.py -t TARGET_DOMAIN [-d] [-g] [-s] [-o FILE] [--help]{Style.RESET_ALL}"
 
 	#Contructor
 	def __init__(self):
@@ -35,6 +36,7 @@ class Informer:
 		self.argParse.add_argument("-d","--dns",nargs="?",help="Option for fetching DNS information.",const=True)
 		self.argParse.add_argument("-g","--geolocation",nargs="?",help="Option for fetching Geolocation information.",const=True)
 		self.argParse.add_argument("-s","--shodan",nargs="?",help="Option for fetching Shodan information.",const=True)
+		self.argParse.add_argument("-o","--output",help="Save output to desired file.")
 		self.args = self.argParse.parse_args() #parsing the arguments
 
 	#Class method for printing banner
@@ -52,69 +54,10 @@ class Informer:
 			#for windows
 			os.system("cls")
 
-	#Getting whois information
-	def get_whois(self):
-		print(f"{Fore.GREEN}[+] Gathering whois Information .. {Style.RESET_ALL}")
-		try:
-			self.domain = self.args.target #Target
-			self.whois = whois.query(self.domain) #fetching details
-			if self.whois is not None:
-				print(f"{Fore.GREEN}[+] whois Information Found ..{Style.RESET_ALL}")
-				print("-----------------------------------------------------------------------------------------------")
-				print ("{:<20} {:<20}".format('| NAME', '| DATA'))
-				print("-----------------------------------------------------------------------------------------------")
-				try:
-					print("{:<20} {:<20}".format("| Name",f"| {self.whois.name}"))
-				except:
-					pass
-				try:
-					print("{:<20} {:<20}".format("| Registrar",f"| {self.whois.registrar}"))
-				except:
-					pass
-				try:
-					print("{:<20} {:<20}".format("| Registrant Country",f"| {self.whois.registrant_country}"))
-				except:
-					pass
-				try:
-					print("{:<20} {:<20}".format("| Creation Date",f"| {self.whois.creation_date}"))
-				except:
-					pass
-				try:
-					print("{:<20} {:<20}".format("| Expiration Date",f"| {self.whois.expiration_date}"))
-				except:
-					pass
-				try:
-					print("{:<20} {:<20}".format("| Last Updated",f"| {self.whois.last_updated}"))
-				except:
-					pass
-				try:
-					for i in self.whois.statuses:
-						print("{:<20} {:<20}".format("| Status",f"| {i}"))
-				except:
-					pass
-				try:
-					print("{:<20} {:<20}".format("| DNS Sec",f"| {self.whois.dnssec}"))
-				except:
-					pass
-				try:
-					for i in name_servers:
-						print("{:<20} {:<20}".format("| Name Server",f"| {i}"))
-				except:
-					pass
-				try:
-					print("{:<20} {:<20}".format("| Registrant",f"| {self.whois.registrant}"))
-				except:
-					pass
-				print("-----------------------------------------------------------------------------------------------\n")
-			else:
-				print(f"{Fore.RED}[!] whois Information not found ..{Style.RESET_ALL}")
-		except KeyboardInterrupt as e:
-			print(f"{Fore.RED}\n[-] Process terminated by user ..{Style.RESET_ALL}")
-		except Exception as e:
-			print(f"{Fore.RED}[!] whois Information not found ..{Style.RESET_ALL}")
-
 if __name__ == "__main__":
 	Informer.screen_clear() #clearing screen
 	Informer.show_banner() #Showing banner
 	informer = Informer() #Initializing object
-	informer.get_whois() #Printing whois information
+
+	whois = Whois(informer.args.target)
+	whois.get_whois() #Printing whois information
