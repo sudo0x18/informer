@@ -1,4 +1,6 @@
-# Informer
+
+# Informer 
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
 Informer is a Basic information gathering tool that provides various information about target like whois info,DNS info, Geolocation info of server and Shodan info.
 
@@ -19,18 +21,54 @@ Install informer with git
 ```
 
 
-## Run Project
+## Usage
+For Linux/Mac Os Use python3 and for Windows use python to run the script. 
 
+#### Help Menu
 ```bash
-  [*] Linux
-        python3 informer.py -t TARGET_DOMAIN
 
-  [*] Windows
-        python informer.py -t TARGET_DOMAIN
-
-  python3 informer.py --help
+    python3 informer.py --help
 
 ```
 
-    
-    
+#### Simple Usage (whois Information Gethering)
+```bash
+
+    python3 informer.py -t google.com
+
+```
+
+#### Gather DNS Info
+```bash
+
+    python3 informer.py -d -t google.com
+
+```
+
+#### Gather Geolocation Info
+```bash
+
+    python3 informer.py -g -t google.com
+
+```
+
+#### Gather Shodan Info
+```bash
+
+    python3 informer.py -s -t google.com
+
+```
+
+#### Gather All Info togather
+```bash
+
+    python3 informer.py -d -g -s -t google.com
+
+```
+
+#### Save output to file
+```bash
+
+    python3 informer.py -d -g -s -t google.com -o filename.txt
+
+```

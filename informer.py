@@ -1,7 +1,7 @@
 #!/bin/python
 
 #Importing Packages
-from colorama import Fore, Back, Style #Coloring package
+from colorama import init, Fore, Back #Coloring package
 import argparse #Package for argument parsing
 import os #For screen clearing
 import sys #System package
@@ -24,11 +24,11 @@ class Informer:
   _| || | | | || (_) | |  | | | | | |  __/ |   
   \___/_| |_|_| \___/|_|  |_| |_| |_|\___|_|   
                                                
- {Back.RED}  Created by Jay Vadhaiya, Github: sudo0x18  {Style.RESET_ALL}
+ {Back.RED}  Created by Jay Vadhaiya, Github: sudo0x18  {Back.RESET}
 """
-	DESCRIPTION = f"""\n{Fore.BLUE}DESCRIPTION {Style.RESET_ALL}:\n-------------\nInformer is a Basic information gathering tool that provides\nvarious information about target like whois info,\nDNS info, Geolocation info of server and Shodan info."""
+	DESCRIPTION = f"""\n{Fore.BLUE}DESCRIPTION {Fore.RESET}:\n-------------\nInformer is a Basic information gathering tool that provides\nvarious information about target like whois info,\nDNS info, Geolocation info of server and Shodan info."""
 
-	USAGE = f"{Fore.GREEN}python3 informer.py -t TARGET_DOMAIN [-d] [-g] [-s] [-o FILE] [--help]{Style.RESET_ALL}"
+	USAGE = f"{Fore.GREEN}python3 informer.py -t TARGET_DOMAIN [-d] [-g] [-s] [-o FILE] [--help]{Fore.RESET}"
 
 	#Contructor
 	def __init__(self):
@@ -45,8 +45,12 @@ class Informer:
 		self.argParse.add_argument("-o","--output",help="Save output to desired file.")
 		self.args = self.argParse.parse_args() #parsing the arguments
 
+		#Setting output class
 		if self.args.output:
 			sys.stdout = Logger(self.args.output)
+
+		#Initializing colorama instance for cross platform coloring
+		init()
 
 	#Class method for printing banner
 	@classmethod

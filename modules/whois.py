@@ -12,11 +12,11 @@ class Whois:
 
 	#Getting whois information
 	def get_whois(self):
-		print(f"{Fore.GREEN}[+] Gathering whois Information .. {Style.RESET_ALL}")
+		print(f"{Fore.GREEN}[+] Gathering whois Information .. {Fore.RESET}")
 		try:
 			self.whois = whois.query(self.domain) #fetching details
 			if self.whois is not None:
-				print(f"{Fore.GREEN}[+] whois Information Found ..{Style.RESET_ALL}")
+				print(f"{Fore.GREEN}[+] whois Information Found ..{Fore.RESET}")
 				print("Whois Information :")
 				print("-----------------------------------------------------------------------------------------------")
 				print ("{:<20} {:<20}".format('| RECORD', '| DATA'))
@@ -65,8 +65,8 @@ class Whois:
 					pass
 				print("-----------------------------------------------------------------------------------------------\n")
 			else:
-				print(f"{Fore.RED}[!] whois Information not found ..{Style.RESET_ALL}")
+				print(f"{Fore.RED}[!] whois Information not found ..{Fore.RESET}")
 		except KeyboardInterrupt as e:
-			print(f"{Fore.RED}\n[-] Process terminated by user ..{Style.RESET_ALL}")
+			print(f"{Fore.RED}\n[-] Process terminated by user ..{Fore.RESET}")
 		except Exception as e:
-			print(f"{Fore.RED}[!] whois Information not found ..{Style.RESET_ALL}")
+			print(f"{Fore.RED}[!] whois Information not found ..{Fore.RESET}")

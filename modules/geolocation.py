@@ -13,10 +13,10 @@ class Geolocation:
 
 	#Getting geolocation information
 	def get_geolocation(self):
-		print(f"{Fore.GREEN}\n[+] Gathering Geolocation Information .. {Style.RESET_ALL}")
+		print(f"{Fore.GREEN}\n[+] Gathering Geolocation Information .. {Fore.RESET}")
 		try:
 			result = requests.request("GET",f"https://geolocation-db.com/json/{socket.gethostbyname(self.domain)}").json()
-			print(f"{Fore.GREEN}[+] Geolocation Information found .. {Style.RESET_ALL}")
+			print(f"{Fore.GREEN}[+] Geolocation Information found .. {Fore.RESET}")
 			print("Geolocation Information :")
 			print("-----------------------------------------------------------------------------------------------")
 			print ("{:<20} {:<20}".format('| RECORD', '| DATA'))
@@ -30,6 +30,6 @@ class Geolocation:
 			print ("{:<20} {:<20}".format('| Longitude', f"| {result['longitude']}"))
 			print("-----------------------------------------------------------------------------------------------\n")
 		except KeyboardInterrupt as e:
-			print(f"{Fore.RED}\n[-] Process terminated by user ..{Style.RESET_ALL}")
+			print(f"{Fore.RED}\n[-] Process terminated by user ..{Fore.RESET}")
 		except Exception as e:
-			print(f"{Fore.RED}[!] Geolocation Information not found ..{Style.RESET_ALL}")
+			print(f"{Fore.RED}[!] Geolocation Information not found ..{Fore.RESET}")
