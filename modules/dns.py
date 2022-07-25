@@ -16,9 +16,9 @@ class DNS:
 		try:
 			print(f"{Fore.GREEN}[+] DNS Information found .. {Fore.RESET}")
 			print("DNS Information :")
-			print("-----------------------------------------------------------------------------------------------")
+			print("-"*95)
 			print ("{:<20} {:<20}".format('| RECORD', '| DATA'))
-			print("-----------------------------------------------------------------------------------------------")
+			print("-"*95)
 			try:
 				for soa in dns.resolver.resolve(self.domain, "SOA"):
 					print ("{:<20} {:<20}".format('| SOA Record', f'| {soa}'))
@@ -44,7 +44,7 @@ class DNS:
 					print ("{:<20} {:<20}".format('| TXT Record', f'| {txt}'))
 			except:
 				print(f"{Fore.YELLOW}[!] TXT Information not found ..{Fore.RESET}")
-			print("-----------------------------------------------------------------------------------------------\n")
+			print("-"*95+"\n")
 		except KeyboardInterrupt as e:
 			print(f"{Fore.RED}\n[-] Process terminated by user ..{Fore.RESET}")
 		except Exception as e:

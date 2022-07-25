@@ -1,7 +1,7 @@
 #!/bin/python
 
 #Importing Packages
-from colorama import init, Fore, Back #Coloring package
+from colorama import init, Fore, Back, Style #Coloring package
 import argparse #Package for argument parsing
 import os #For screen clearing
 import sys #System package
@@ -16,7 +16,7 @@ from modules.logger import Logger #Shodan class from logger module file
 #Defining informer class
 class Informer:
 	#Creating banner, description and usage
-	BANNER = f"""
+	BANNER = f"""{Style.BRIGHT}
   _____       __                               
  |_   _|     / _|                              
    | | _ __ | |_ ___  _ __ _ __ ___   ___ _ __ 
@@ -24,7 +24,7 @@ class Informer:
   _| || | | | || (_) | |  | | | | | |  __/ |   
   \___/_| |_|_| \___/|_|  |_| |_| |_|\___|_|   
                                                
- {Back.RED}  Created by Jay Vadhaiya, Github: sudo0x18  {Back.RESET}
+ {Back.RED}  Created by Jay Vadhaiya, Github: sudo0x18  {Back.RESET}{Style.RESET_ALL}
 """
 	DESCRIPTION = f"""\n{Fore.BLUE}DESCRIPTION {Fore.RESET}:\n-------------\nInformer is a Basic information gathering tool that provides\nvarious information about target like whois info,\nDNS info, Geolocation info of server and Shodan info."""
 
@@ -74,15 +74,17 @@ if __name__ == "__main__":
 
 	whois = Whois(informer.args.target) #Creating Whois class object
 	whois.get_whois() #Printing whois information
+	try:
+		if informer.args.dns:
+			dns = DNS(informer.args.target) #Creating DNS class object
+			dns.get_dns() #Printing DNS information
 
-	if informer.args.dns:
-		dns = DNS(informer.args.target) #Creating DNS class object
-		dns.get_dns() #Printing DNS information
+		if informer.args.geolocation:
+			geo = Geolocation(informer.args.target) #Creating Geolocation class object
+			geo.get_geolocation() #Printing Geolocation information
 
-	if informer.args.geolocation:
-		geo = Geolocation(informer.args.target) #Creating Geolocation class object
-		geo.get_geolocation() #Printing Geolocation information
-
-	if informer.args.shodan:
-		shodan = Shodan(informer.args.target) #Creating shodan class object
-		shodan.get_shodan() #Printing shodan information
+		if informer.args.shodan:
+			shodan = Shodan(informer.args.target) #Creating shodan class object
+			shodan.get_shodan() #Printing shodan information
+	except KeyboardInterrupt as e:
+		print(f"{Fore.RED}\n[-] Process terminated by user ..{Fore.RESET}")

@@ -18,9 +18,9 @@ class Whois:
 			if self.whois is not None:
 				print(f"{Fore.GREEN}[+] whois Information Found ..{Fore.RESET}")
 				print("Whois Information :")
-				print("-----------------------------------------------------------------------------------------------")
+				print("-"*95)
 				print ("{:<20} {:<20}".format('| RECORD', '| DATA'))
-				print("-----------------------------------------------------------------------------------------------")
+				print("-"*95)
 				try:
 					print("{:<20} {:<20}".format("| Name",f"| {self.whois.name}"))
 				except:
@@ -63,7 +63,7 @@ class Whois:
 					print("{:<20} {:<20}".format("| Registrant",f"| {self.whois.registrant}"))
 				except:
 					pass
-				print("-----------------------------------------------------------------------------------------------\n")
+				print("-"*95+"\n")
 			else:
 				print(f"{Fore.RED}[!] whois Information not found ..{Fore.RESET}")
 		except KeyboardInterrupt as e:
