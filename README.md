@@ -1,10 +1,33 @@
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="#">
+    <img src="https://i.imgur.com/ixfuCYE.png" alt="logo" height="135px">
+  </a>
 
-# Informer 
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+  <h2 align="center">Informer</h2>
+  <p align="center">
+    <a
+      href="https://github.com/sudo0x18/informer/issues/new?assignees=&labels=bug">Report
+      Bug</a>
+    ·
+    <a href="https://github.com/sudo0x18/informer/issues">Request Feature</a>
+  </p>
 
-Informer is a Basic information gathering tool that provides various information about target like whois info,DNS info, Geolocation info of server and Shodan info.
+  <img alt="informer" src="https://img.shields.io/github/stars/sudo0x18/informer">
+  <img alt="informer" src="https://img.shields.io/github/issues/sudo0x18/informer">
+  <img alt="informer" src="https://img.shields.io/github/languages/code-size/sudo0x18/informer">
+  <img alt="informer" src="https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs">
+  
 
-![App Screenshot](https://i.ibb.co/CsfMvTf/informer.png)
+</div>
+
+<hr>
+
+<h3 align="center">Informer is a OSINT information gathering tool that gathers whois, DNS, geolocation and shodan information of the target.</h3>
+
+<hr>
+
 ## Installation
 
 Install informer with git
@@ -72,3 +95,13 @@ For Linux/Mac Os Use python3 and for Windows use python to run the script.
     python3 informer.py -d -g -s -t google.com -o filename.txt
 
 ```
+
+## Contributing 💡
+
+You can propose a feature request opening an issue or a pull request.
+
+Here is a list of Osintgram's contributors:
+
+<a href="https://github.com/Datalux/Osintgram/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=sudo0x18/informer" />
+</a>
