@@ -26,7 +26,7 @@ class Informer:
                                                
  {Back.RED}  Created by Jay Vadhaiya, Github: sudo0x18  {Back.RESET}{Style.RESET_ALL}
 """
-	DESCRIPTION = f"""\n{Fore.BLUE}DESCRIPTION {Fore.RESET}:\n-------------\nInformer is a Basic information gathering tool that provides\nvarious information about target like whois info,\nDNS info, Geolocation info of server and Shodan info."""
+	DESCRIPTION = f"""\n{Fore.BLUE}DESCRIPTION {Fore.RESET}:\n-------------\nInformer is a OSINT information gathering tool that gathers whois, DNS, geolocation and shodan information of the target."""
 
 	USAGE = f"{Fore.GREEN}python3 informer.py -t TARGET_DOMAIN [-d] [-g] [-s] [-o FILE] [--help]{Fore.RESET}"
 
