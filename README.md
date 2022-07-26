@@ -96,7 +96,7 @@ For Linux/Mac Os Use python3 and for Windows use python to run the script.
 
 You can propose a feature request opening an issue or a pull request.
 
-Here is a list of Osintgram's contributors:
+Here is a list of Informer's contributors:
 
 <a href="https://github.com/Datalux/Osintgram/graphs/contributors">
   <img src="https://contributors-img.web.app/image?repo=sudo0x18/informer" />
