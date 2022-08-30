@@ -22,7 +22,7 @@
 
 </div>
 
-<h3 align="center">Informer is a OSINT information gathering tool that gathers whois, DNS, geolocation and shodan information of the target.</h3>
+<h3 align="center">Informer is a OSINT information gathering tool that gathers whois, Sub-domain ,DNS, geolocation and shodan information of the target.</h3>
 
 ## Installation 🧑‍🔧​
 
@@ -41,7 +41,6 @@ Install informer with git
 
 
 ## Usage 🧑‍💻​
-For Linux/Mac Os Use python3 and for Windows use python to run the script. 
 
 #### Help Menu 👀​
 ```bash
@@ -54,6 +53,13 @@ For Linux/Mac Os Use python3 and for Windows use python to run the script.
 ```bash
 
     python3 informer.py -t google.com
+
+```
+
+#### Gather Sub-Domain Info
+```bash
+
+    python3 informer.py -sd -t google.com
 
 ```
 
@@ -81,14 +87,14 @@ For Linux/Mac Os Use python3 and for Windows use python to run the script.
 #### Gather All Info togather
 ```bash
 
-    python3 informer.py -d -g -s -t google.com
+    python3 informer.py -d -g -s -sd -t google.com
 
 ```
 
 #### Save output to file
 ```bash
 
-    python3 informer.py -d -g -s -t google.com -o filename.txt
+    python3 informer.py -d -g -s -sd -t google.com -o filename.txt
 
 ```
 

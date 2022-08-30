@@ -15,7 +15,7 @@ class Logger:
   \___/_| |_|_| \___/|_|  |_| |_| |_|\___|_|   
                                                
 """
-    DESCRIPTION = f"""Informer is a Basic information gathering tool that provides\nvarious information about target like whois info,\nDNS info, Geolocation info of server and Shodan info."""
+    DESCRIPTION = f"""Informer is a OSINT information gathering tool that gathers whois, Sub-domain, DNS, geolocation and shodan information of the target."""
 
     #defining contructor
     def __init__(self, filename):

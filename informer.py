@@ -11,7 +11,8 @@ from modules.whois import Whois #Whois class from whois module file
 from modules.dns import DNS #DNS class from dns module file
 from modules.geolocation import Geolocation #Geolocation class from geolocation module file
 from modules.shodan import Shodan #Shodan class from shodan module file
-from modules.logger import Logger #Shodan class from logger module file
+from modules.logger import Logger #Logger class from logger module file
+from modules.subdomain import SubDomain #SubDomain class from subdomain module file 
 
 #Defining informer class
 class Informer:
@@ -26,7 +27,7 @@ class Informer:
                                                
  {Back.RED}  Created by Jay Vadhaiya, Github: sudo0x18  {Back.RESET}{Style.RESET_ALL}
 """
-	DESCRIPTION = f"""\n{Fore.BLUE}DESCRIPTION {Fore.RESET}:\n-------------\nInformer is a OSINT information gathering tool that gathers whois, DNS, geolocation and shodan information of the target."""
+	DESCRIPTION = f"""\n{Fore.BLUE}DESCRIPTION {Fore.RESET}:\n-------------\nInformer is a OSINT information gathering tool that gathers whois, Sub-domain, DNS, geolocation and shodan information of the target."""
 
 	USAGE = f"{Fore.GREEN}python3 informer.py -t TARGET_DOMAIN [-d] [-g] [-s] [-o FILE] [--help]{Fore.RESET}"
 
@@ -39,9 +40,10 @@ class Informer:
 			usage = self.USAGE
 			)
 		self.argParse.add_argument("-t","--target",help="Target domain name.",required=True)
-		self.argParse.add_argument("-d","--dns",nargs="?",help="Option for fetching DNS information.",const=True)
-		self.argParse.add_argument("-g","--geolocation",nargs="?",help="Option for fetching Geolocation information.",const=True)
-		self.argParse.add_argument("-s","--shodan",nargs="?",help="Option for fetching Shodan information.",const=True)
+		self.argParse.add_argument("-d","--dns",nargs="?",help="Get DNS Information",const=True)
+		self.argParse.add_argument("-g","--geolocation",nargs="?",help="Get Geolocation Information.",const=True)
+		self.argParse.add_argument("-s","--shodan",nargs="?",help="Get Shodan Information.",const=True)
+		self.argParse.add_argument("-sd","--subdomain",nargs="?",help="Get Subdomain Information.",const=True)
 		self.argParse.add_argument("-o","--output",help="Save output to desired file.")
 		self.args = self.argParse.parse_args() #parsing the arguments
 
@@ -86,5 +88,10 @@ if __name__ == "__main__":
 		if informer.args.shodan:
 			shodan = Shodan(informer.args.target) #Creating shodan class object
 			shodan.get_shodan() #Printing shodan information
+
+		if informer.args.subdomain:
+			subdomain = SubDomain(informer.args.target) #Creating subdomain class object
+			subdomain.get_subdomain() #Printing subdomain data
+
 	except KeyboardInterrupt as e:
 		print(f"{Fore.RED}\n[-] Process terminated by user ..{Fore.RESET}")
